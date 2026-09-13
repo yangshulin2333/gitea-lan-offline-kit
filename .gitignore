@@ -1,0 +1,14 @@
+/vendor/
+/dist/
+/build/
+__pycache__/
+*.pyc
+*.zip
+*.exe
+*.msi
+*.db
+*.db-wal
+*.db-shm
+app.ini
+.env
+*.log
