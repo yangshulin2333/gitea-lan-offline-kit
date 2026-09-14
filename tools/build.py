@@ -87,6 +87,7 @@ def main():
         shutil.copytree(ROOT / 'scripts', full / '工具')
         (client / '工具').mkdir()
         shutil.copy2(ROOT / 'scripts/00-校验离线包.ps1', client / '工具')
+        shutil.copy2(ROOT / 'scripts/04-GCM-OAuth.ps1', client / '工具')
         shutil.copy2(ROOT / 'vendor/gitea.exe', full / '服务端')
         shutil.copy2(ROOT / 'vendor/GITEA-LICENSE', full / '服务端/LICENSE')
         for path in (ROOT / 'vendor').iterdir():
@@ -96,6 +97,10 @@ def main():
         zh = (ROOT / 'docs/zh-CN/guide.md').read_text(encoding='utf-8')
         en = (ROOT / 'docs/en/guide.md').read_text(encoding='utf-8')
         for folder in (full, client):
+            (folder / 'OAuth-authentication.html').write_text(
+                render((ROOT / 'docs/zh-CN/oauth-authentication.md').read_text(encoding='utf-8'), 'zh-CN'), encoding='utf-8')
+            (folder / 'OAuth-authentication-English.html').write_text(
+                render((ROOT / 'docs/en/oauth-authentication.md').read_text(encoding='utf-8'), 'en'), encoding='utf-8')
             (folder / '完整中文操作手册.html').write_text(render(zh, 'zh-CN'), encoding='utf-8')
             (folder / 'English-guide.html').write_text(render(en, 'en'), encoding='utf-8')
             for name in ('THIRD_PARTY.md', 'LICENSE'):
