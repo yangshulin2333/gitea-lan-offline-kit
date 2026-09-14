@@ -201,7 +201,7 @@ For a forgotten administrator password, the server administrator should use the 
 |LFS failure|Check client LFS installation, server enablement, stored objects, connectivity and permissions|
 |Merge blocked|Check approval count, reviewer allowlist, requested changes, pending reviews and conflicts|
 
-First-request authentication failure followed by successful retry has been observed on two clients. Token refresh is a possibility, not a confirmed root cause. Do not wipe all Windows credentials; investigate only the matching Gitea site. Signature notices refer to commit signing, not login credentials.
+For first-request OAuth failures followed by successful retries, see the optional [authentication workaround](oauth-authentication.md). The reference client passed read and push dry-run checks; long-term behavior remains unverified. Do not wipe all Windows credentials; investigate only the matching Gitea site. Signature notices refer to commit signing, not login credentials.
 
 ## 11. Acceptance checklist
 
@@ -216,3 +216,5 @@ First-request authentication failure followed by successful retry has been obser
 - Observe first operations after token expiry and record authentication failures.
 
 Keep unverified items visible. Existing tests cannot guarantee compatibility with every machine.
+
+Future offline builds include OAuth-authentication-English.html; existing v0.1.0 bundles do not include this supplement.

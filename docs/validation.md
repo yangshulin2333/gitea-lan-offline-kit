@@ -21,8 +21,10 @@
 
 ## 已知认证问题 / Known authentication issue
 
-Two clients have intermittently received `Authentication failed` on the first Git request. Retrying without changing configuration succeeded. Credential entry observations are consistent with token refresh, but the cause has not been established. Do not treat retry success as a permanent fix or disable authentication.
+GCM 2.7.3 cached-access-credential behavior was inspected and is consistent with observed OAuth failures followed by refresh. A site-scoped workaround suppresses access-token persistence while retaining the refresh credential. Two rounds of actual remote reads and push dry runs passed without browser login. Historical token expiry timestamps were not captured; long-idle and multi-client verification remain pending. See [中文说明](zh-CN/oauth-authentication.md) / [English](en/oauth-authentication.md). Existing v0.1.0 assets are unchanged.
 
 ## 发布前检查 / Packaging checks
 
 Original installers have valid Authenticode signatures on the build machine. Gitea binary matches the pinned SHA-256. Archive members are checked against source hashes. These checks detect packaging errors and do not establish application correctness on every machine.
+
+Configuration-script checks: Windows PowerShell 5.1 and PowerShell 7 passed isolated tests for WhatIf, apply, repeated apply, undo, preservation of unrelated helpers, and invalid origins. Credential operations were mocked; these tests did not contact a real credential store. Packaging code syntax was checked; release archives were not rebuilt.

@@ -32,6 +32,6 @@ Chinese is the default documentation language. An English guide includes transla
 
 Intel/AMD x64 Windows 10/11, administrator privileges, healthy local NTFS storage and a LAN. Tested operational environment: Windows 11 x64; Windows 10 remains unverified. ARM64, 32-bit and older Windows versions are outside this package's support scope.
 
-SQLite is embedded. Deployment does not require Docker, Node or Python. A maintainer needs Python to build release archives. Fresh-machine deployment, cross-machine restore and protected-branch enforcement still require acceptance tests. Intermittent first-request OAuth authentication failures have been observed; retry succeeded but the root cause is unresolved. This kit uses HTTP on a controlled LAN, not public Internet hosting.
+SQLite is embedded. Deployment does not require Docker, Node or Python. A maintainer needs Python to build release archives. Fresh-machine deployment, cross-machine restore and protected-branch enforcement still require acceptance tests. An optional [OAuth workaround](docs/en/oauth-authentication.md) passed two rounds of reference remote reads and push dry runs; long-idle and multi-client validation remain pending. Existing v0.1.0 ZIPs do not include the new script. This kit uses HTTP on a controlled LAN, not public Internet hosting.
 
 Original scripts and documentation are MIT licensed. Bundled programs retain their own licenses. This is an independent project, not an official distribution of Gitea, Git or TortoiseGit.

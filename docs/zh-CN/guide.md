@@ -171,7 +171,7 @@ TortoiseGit→设置→Git：名称填写自己的姓名或账号，Email填写�
 |---|---|
 |网页打不开|确认服务器开机、IP没变、Gitea服务运行；等待延迟启动。检查选定IP与TCP3000，不关闭整个防火墙|
 |服务起不来|运行services.msc查看Gitea；查安装目录log；检查磁盘、Git路径、权限和端口占用|
-|Authentication failed|原样重试一次；当前两台电脑出现过首次失败后重试成功，原因未彻底确认|
+|Authentication failed|OAuth 首次失败且重试成功时，参见 [认证处理](oauth-authentication.md)；不要对密码或权限错误套用此方案|
 |持续认证失败|确认账号可网页登录、账号未禁用、仓库权限正确；只检查该站点凭据，不能清空所有Windows凭据|
 |受保护分支拒绝推送|保留本地提交，创建并切到任务分支后推送，通过合并请求；不要强制推送|
 |non-fast-forward|远端有新提交；先获取并合并到正确开发分支，处理冲突再推送|
@@ -205,3 +205,5 @@ TortoiseGit→设置→Git：名称填写自己的姓名或账号，Email填写�
 - Conflict：冲突。Resolve the conflict first. 先解决冲突。
 - Backup：备份。Keep a backup. 保留一份备份。
 - Restore：恢复。Restore from a backup. 从备份恢复。
+
+离线包中认证补充说明文件为 OAuth-authentication.html（新增构建产物，既有 v0.1.0 不含）。
